@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ddc57f125f668a40b6aa178e978a61e, type: 3}
+  m_Name: Heavy_Cannon
+  m_EditorClassIdentifier: 
+  damage: 5
+  reloadSpeed: 6
+  accuracy: 50
+  maxCrew: 1
+  cannonSprite: {fileID: 21300000, guid: 1de2ede76652ca845aa3ff05b3071324, type: 3}
+  cannonBallSprite: {fileID: 21300000, guid: 6acefc429f43cea46aceb14dd798d6a6, type: 3}

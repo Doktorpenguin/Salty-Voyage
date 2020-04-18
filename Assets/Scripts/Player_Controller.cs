@@ -49,6 +49,7 @@ public class Player_Controller : MonoBehaviour
         if (rc.Wood >= 5)
         {
             rc.Wood -= 5;
+            rc.shipHealth += 5;
             Destroy(Leak);
         }
 

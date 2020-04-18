@@ -11,6 +11,7 @@ public class UI_Controller : MonoBehaviour
     public Text threadText;
     public Text crewText;
     public Text goldText;
+    public Text ammoText;
     void Start()
     {
         
@@ -24,6 +25,7 @@ public class UI_Controller : MonoBehaviour
         threadText.text = "Thread =" + " " + rc.Thread.ToString();
         crewText.text = "Crew =" + " " + rc.Crew.ToString();
         goldText.text = "Gold =" + " " + rc.Gold.ToString();
+        goldText.text = "Ammo:" + " " + rc.Ammo.ToString() + "/" + rc.maxAmmo;
 
     }
 }
