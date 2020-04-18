@@ -7,12 +7,24 @@ public class Player_Controller : MonoBehaviour
     //This script handles the Character's movements and interactions with the world.
     public float moveSpeed;
     public Rigidbody2D rb;
-    public Resources_Controller rc;
-    
+
+    public int Wood;
+    public int Thread;
+    public int Crew;
+    public int Gold;
+    public int Ammo;
+    public int maxAmmo;
+    public int shipHealth;
+    public int waterBucket;
+
     Vector2 movement;
     void Start()
     {
-        rc = GetComponent<Resources_Controller>();
+
+        maxAmmo = 10;
+        waterBucket = 1;
+        Wood = 10;
+        shipHealth = 100;
     }
 
     // Update is called once per frame
@@ -35,10 +47,17 @@ public class Player_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            Debug.Log("Meh");
             if (collision.gameObject.tag == "Damage")
             {
-                FixLeak(collision.gameObject);              
+                FixLeak(collision.gameObject);     
+                //Repair(collision.gameObject, 5, Wood, 5);
+            }
+
+            else if (collision.gameObject.tag == "Fire")
+            {
+
+                FixFire(collision.gameObject);
+
             }
         }
 
@@ -46,12 +65,31 @@ public class Player_Controller : MonoBehaviour
 
     void FixLeak(GameObject Leak)
     {
-        if (rc.Wood >= 5)
+        if (Wood >= 5)
         {
-            rc.Wood -= 5;
-            rc.shipHealth += 5;
+            Wood -= 5;
+            shipHealth += 5;
             Destroy(Leak);
         }
+    }
 
+    void FixFire(GameObject Fire)
+    {
+        if (waterBucket >= 1)
+        {
+            waterBucket -= 1;
+            shipHealth += 1;
+            Destroy(Fire);
+        }
+    }
+
+    void Repair(GameObject damage, int shipDamage, int resource, int cost)
+    {
+        if (resource >= cost)
+        {
+            resource = 5;
+            shipHealth += shipDamage;
+            Destroy(damage);
+        }
     }
 }

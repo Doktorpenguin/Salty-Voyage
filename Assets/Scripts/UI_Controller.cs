@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class UI_Controller : MonoBehaviour
 {
-    public Resources_Controller rc;
+    public Player_Controller pc;
     public Text woodText;
     public Text shipText;
     public Text threadText;
     public Text crewText;
     public Text goldText;
     public Text ammoText;
+    public Text wbText;
     void Start()
     {
         
@@ -20,12 +21,13 @@ public class UI_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        woodText.text = "Wood =" + " " + rc.Wood.ToString();
-        shipText.text = "Ship Health:" + " " + rc.shipHealth + "/100";
-        threadText.text = "Thread =" + " " + rc.Thread.ToString();
-        crewText.text = "Crew =" + " " + rc.Crew.ToString();
-        goldText.text = "Gold =" + " " + rc.Gold.ToString();
-        goldText.text = "Ammo:" + " " + rc.Ammo.ToString() + "/" + rc.maxAmmo;
+        woodText.text = "Wood =" + " " + pc.Wood.ToString();
+        shipText.text = "Ship Health:" + " " + pc.shipHealth + "/100";
+        threadText.text = "Thread =" + " " + pc.Thread.ToString();
+        crewText.text = "Crew =" + " " + pc.Crew.ToString();
+        goldText.text = "Gold =" + " " + pc.Gold.ToString();
+        ammoText.text = "Ammo:" + " " + pc.Ammo.ToString() + "/" + pc.maxAmmo;
+        wbText.text = "Water Buckets =" + " " + pc.waterBucket.ToString();
 
     }
 }

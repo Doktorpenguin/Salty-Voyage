@@ -6,11 +6,11 @@ using TMPro;
 public class Hole_Event : MonoBehaviour
 {
     public TMP_Text text;
-    public Resources_Controller rc;
+    public Player_Controller pc;
     void Start()
     {
 
-        rc.shipHealth -= 5;
+        pc.shipHealth -= 5;
 
     }
 

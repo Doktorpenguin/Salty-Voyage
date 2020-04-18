@@ -7,7 +7,7 @@ public class Cannon_Controller : MonoBehaviour
     public Cannon cannon;
     public GameObject focusedCannon;
     public Cannon_Stats cannonStats;
-    public Resources_Controller rc;
+    public Player_Controller pc;
     public float meh;
     void Start()
     {
@@ -68,7 +68,7 @@ public class Cannon_Controller : MonoBehaviour
     private void Shoot()
     {
 
-        rc.Ammo -= 1;
+        pc.Ammo -= 1;
         cannonStats.needsReload = true;
 
     }
