@@ -7,6 +7,7 @@ public class UI_Controller : MonoBehaviour
 {
     public Resources_Controller rc;
     public Text woodText;
+    public Text shipText;
     void Start()
     {
         
@@ -16,5 +17,6 @@ public class UI_Controller : MonoBehaviour
     void Update()
     {
         woodText.text = "Wood =" + " " + rc.Wood.ToString();
+        shipText.text = "Ship Health:" + " " + rc.shipHealth + "/100";
     }
 }
