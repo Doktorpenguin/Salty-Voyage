@@ -36,4 +36,5 @@ public class Hole_Event : MonoBehaviour
     {
         text.gameObject.SetActive(false);
     }
+
 }

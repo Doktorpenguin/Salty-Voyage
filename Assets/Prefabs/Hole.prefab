@@ -264,13 +264,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1244495895933343369}
   - component: {fileID: 1244495895933343367}
-  - component: {fileID: 1244495895933343365}
   - component: {fileID: 1244495895933343364}
   - component: {fileID: 1244495895933343371}
   - component: {fileID: 1244495895933343370}
   - component: {fileID: 1244495895933343366}
   m_Layer: 0
-  m_Name: Hole_SM
+  m_Name: Hole
   m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,20 +345,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1244495895933343365
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1244495895933343360}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c20912575c6d5b44923d45f5c4a6528, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  text: {fileID: 1244495895105521093}
-  rc: {fileID: 0}
 --- !u!61 &1244495895933343364
 BoxCollider2D:
   m_ObjectHideFlags: 0

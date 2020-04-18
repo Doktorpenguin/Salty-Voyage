@@ -38,21 +38,18 @@ public class Player_Controller : MonoBehaviour
             Debug.Log("Meh");
             if (collision.gameObject.tag == "Damage")
             {
-                Debug.Log("DMG");
                 FixLeak(collision.gameObject);              
             }
         }
 
-        Debug.Log("OUCH");
     }
 
-    void FixLeak (GameObject Leak)
+    void FixLeak(GameObject Leak)
     {
         if (rc.Wood >= 5)
         {
             rc.Wood -= 5;
             Destroy(Leak);
-            Debug.Log("Leak Gone");
         }
 
     }

@@ -11,7 +11,7 @@ public class Resources_Controller : MonoBehaviour
     public int shipHealth;
     void Start()
     {
-        //shipHealth = 100;
+        
     }
 
     // Update is called once per frame
