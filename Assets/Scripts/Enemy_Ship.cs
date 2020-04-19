@@ -25,8 +25,8 @@ public class Enemy_Ship : MonoBehaviour
         Wood = 10;
         waterBucket = 2;
         shipHealth = 100;
-        Ammo = maxAmmo;
         maxAmmo = 15;
+        Ammo = maxAmmo;
         Gold = 20;
 
     }

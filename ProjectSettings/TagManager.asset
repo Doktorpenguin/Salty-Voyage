@@ -14,6 +14,7 @@ TagManager:
   - Player Ship
   - Enemy Damage
   - Enemy Fire
+  - Interactable Object
   layers:
   - Default
   - TransparentFX

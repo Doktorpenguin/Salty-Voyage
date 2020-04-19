@@ -97,6 +97,11 @@ public class Player_Controller : MonoBehaviour
 
                     break;
 
+                case "Interactable Object":
+
+                    collision.gameObject.GetComponent<Loot_IO>().Take();
+                    break;
+
 
             }
         }

@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 8209727035082004146}
   - component: {fileID: 381327910989394722}
   - component: {fileID: 8243379068389186350}
+  - component: {fileID: 359182732}
   m_Layer: 0
   m_Name: powder_keg
-  m_TagString: Untagged
+  m_TagString: Interactable Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3313682390018779325}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.8035, y: 0.8035, z: 0.8035}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,6 +96,24 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1.82, y: 2.11}
+  m_Offset: {x: -0.043824214, y: -0.008765258}
+  m_Size: {x: 1.7323515, y: 2.0924695}
   m_Direction: 0
+--- !u!114 &359182732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3313682390018779325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424713627a45bc541b3dd6ebff747fcf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy_S: {fileID: 0}
+  pc: {fileID: 0}
+  loot_type: gunpowder
+  amount: 0
+  amountMax: 0
+  amountMin: 0
