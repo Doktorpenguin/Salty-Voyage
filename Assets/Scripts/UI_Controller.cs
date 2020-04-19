@@ -22,7 +22,7 @@ public class UI_Controller : MonoBehaviour
     void Update()
     {
         woodText.text = "Wood =" + " " + pc.Wood.ToString();
-        shipText.text = "Ship Health:" + " " + pc.shipHealth + "/100";
+        shipText.text = "Ship Health:" + " " + pc.shipHealth + "/" + pc.shipHealthMax;
         threadText.text = "Thread =" + " " + pc.Thread.ToString();
         crewText.text = "Crew =" + " " + pc.Crew.ToString();
         goldText.text = "Gold =" + " " + pc.Gold.ToString();

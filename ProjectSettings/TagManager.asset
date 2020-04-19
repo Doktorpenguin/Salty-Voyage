@@ -7,6 +7,11 @@ TagManager:
   - Damage
   - Cannon
   - Fire
+  - Enemy Ship
+  - Enemy
+  - Crew
+  - Marker
+  - Player Ship
   layers:
   - Default
   - TransparentFX

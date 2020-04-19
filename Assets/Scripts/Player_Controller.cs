@@ -5,10 +5,10 @@ using UnityEngine;
 public class Player_Controller : MonoBehaviour
 {
     //This script handles the Character's movements and interactions with the world.
-    public float moveSpeed;
+    private float moveSpeed;
     public Rigidbody2D rb;
-    public Animator anim;
-    public Vector2 movement;
+    private Animator anim;
+    private Vector2 movement;
 
     public int playerHealth;
 
@@ -19,15 +19,20 @@ public class Player_Controller : MonoBehaviour
     public int Ammo;
     public int maxAmmo;
     public int shipHealth;
+    public int shipHealthMax;
     public int waterBucket;
 
 
     void Start()
     {
+        moveSpeed = 3;
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
 
+        playerHealth = 10;
         maxAmmo = 10;
         Ammo = 5;
-        waterBucket = 1;
+        waterBucket = 3;
         Wood = 10;
         shipHealth = 100;
     }

@@ -12,6 +12,7 @@ public class Cannon_Controller : MonoBehaviour
     public GameObject Leak;
     public GameObject cannonBall;
     public Transform tipTransform;
+    public GameObject dest_marker;
     void Start()
     {
         cannonIndex = 0;
@@ -91,13 +92,14 @@ public class Cannon_Controller : MonoBehaviour
         focusedCannon.transform.up = direction;
 
         GameObject cb = Instantiate(cannonBall, tipTransform.position, focusedCannon.transform.rotation);
-        cb.GetComponent<CannonBall_Controller>().destination = mousePosition;
-        Destroy(cb, 12);
+        GameObject mk = Instantiate(dest_marker, mousePosition, dest_marker.transform.rotation);
+        cb.GetComponent<CannonBall_Controller>().destination = mk.transform.position;
+        Destroy(mk, 3);
 
         pc.Ammo -= 1;
-        cannonStats.needsReload = true;
-        cannonIndex += 1;
-        focusedCannon = playerCannons[cannonIndex];
+        //  cannonStats.needsReload = true;
+        //cannonIndex += 1;
+        //focusedCannon = playerCannons[cannonIndex];
         //Instantiate and fire cannonball
 
     }
