@@ -22,12 +22,16 @@ public class Player_Controller : MonoBehaviour
     public int shipHealthMax;
     public int waterBucket;
 
+    public bool hasGunpowder;
+
 
     void Start()
     {
         moveSpeed = 3;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        hasGunpowder = false;
 
         playerHealth = 10;
         maxAmmo = 10;
@@ -67,16 +71,32 @@ public class Player_Controller : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (collision.gameObject.tag == "Damage")
-            {
-                FixLeak(collision.gameObject);     
-                //Repair(collision.gameObject, 5, Wood, 5);
-            }
-
-            else if (collision.gameObject.tag == "Fire")
+            switch (collision.gameObject.tag)
             {
 
-                FixFire(collision.gameObject);
+                case "Damage":
+
+                    FixLeak(collision.gameObject);
+                    break;
+
+                case "Fire":
+
+                    FixFire(collision.gameObject);
+                    break;
+
+                case "Cannon":
+
+                    if (hasGunpowder)
+                    {
+                        collision.gameObject.GetComponent<Cannon_Stats>().Reload();
+                    }
+                    else
+                    {
+                        Debug.Log("You need to grab gun powder!");
+                    }
+
+                    break;
+
 
             }
         }
@@ -100,16 +120,6 @@ public class Player_Controller : MonoBehaviour
             waterBucket -= 1;
             shipHealth += 1;
             Destroy(Fire);
-        }
-    }
-
-    void Repair(GameObject damage, int shipDamage, int resource, int cost)
-    {
-        if (resource >= cost)
-        {
-            resource = 5;
-            shipHealth += shipDamage;
-            Destroy(damage);
         }
     }
 }
