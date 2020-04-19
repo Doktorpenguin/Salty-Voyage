@@ -17,4 +17,5 @@ MonoBehaviour:
   accuracy: 50
   maxCrew: 1
   cannonSprite: {fileID: 21300000, guid: 1de2ede76652ca845aa3ff05b3071324, type: 3}
+  activeSprite: {fileID: 21300000, guid: f25b65b621027544795a398936cd0991, type: 3}
   cannonBallSprite: {fileID: 21300000, guid: 6acefc429f43cea46aceb14dd798d6a6, type: 3}

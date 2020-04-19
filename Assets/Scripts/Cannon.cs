@@ -13,6 +13,7 @@ public class Cannon : ScriptableObject
     public float maxCrew;
     //ammo type variable
     public Sprite cannonSprite;
+    public Sprite activeSprite;
     public Sprite cannonBallSprite;
 
 }

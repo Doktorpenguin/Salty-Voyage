@@ -4,47 +4,48 @@ using UnityEngine;
 
 public class Cannon_Controller : MonoBehaviour
 {
-    public Cannon cannon;
     public GameObject focusedCannon;
     public Cannon_Stats cannonStats;
     public Player_Controller pc;
-    public float meh;
+    public GameObject[] playerCannons;
+    public int cannonIndex;
+    public GameObject Leak;
+    public GameObject cannonBall;
+    public Transform tipTransform;
     void Start()
     {
-        
-        
+        cannonIndex = 0;
+        focusedCannon = playerCannons[cannonIndex];
+        focusedCannon.GetComponent<SpriteRenderer>().sprite = focusedCannon.GetComponent<Cannon_Stats>().activeSprite;
 
     }
 
     
-    void Update()
+    public void Update()
     {
-        //focusedCannon.transform.position = Input.mousePosition;
-        Vector3 dir = Input.mousePosition - Camera.main.WorldToScreenPoint(transform.position);
-        float addAngle = 270;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg + addAngle;
-
-        focusedCannon.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        //if (Input.GetMouseButtonDown(0))
-        //{
-            
-        //    Vector2 rayPos = new Vector2(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y);
-        //    RaycastHit2D hit = Physics2D.Raycast(rayPos, Vector2.zero, 0f);
-            
-        //    if (hit.transform.tag == "Cannon")
-        //    {
-        //        //focusedCannon = null;
-        //        cannon = hit.transform.GetComponent<Cannon_Stats>().cannon;
-        //        focusedCannon = hit.transform.gameObject;
-        //    }
-
-        //}
 
         if (focusedCannon != null)
         {
-            Debug.DrawRay(focusedCannon.transform.position, dir);
-            //focusedCannon.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            Vector3 mousePosition = Input.mousePosition;
+            mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+            Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+
+            focusedCannon.transform.up = direction;
+
+            Debug.DrawRay(focusedCannon.transform.position, direction);
+
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+
+
+
+            if (pc.Ammo >= 1)
+            {
+                Shoot();
+            }
 
 
         }
@@ -52,8 +53,22 @@ public class Cannon_Controller : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
 
-            focusedCannon = null;
+            
 
+        }
+
+        if (cannonIndex > playerCannons.Length)
+        {
+            cannonIndex = 0;
+            if (playerCannons[0].GetComponent<Cannon_Stats>().needsReload == true)
+            {
+
+                focusedCannon = null;
+
+            }
+
+            else { focusedCannon = playerCannons[cannonIndex]; }
+            //Switch between all cannons until one is cleared
         }
 
     }
@@ -68,8 +83,22 @@ public class Cannon_Controller : MonoBehaviour
     private void Shoot()
     {
 
+        Vector3 mousePosition = Input.mousePosition;
+        mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
+
+        Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
+
+        focusedCannon.transform.up = direction;
+
+        GameObject cb = Instantiate(cannonBall, tipTransform.position, focusedCannon.transform.rotation);
+        cb.GetComponent<CannonBall_Controller>().destination = mousePosition;
+        Destroy(cb, 12);
+
         pc.Ammo -= 1;
         cannonStats.needsReload = true;
+        cannonIndex += 1;
+        focusedCannon = playerCannons[cannonIndex];
+        //Instantiate and fire cannonball
 
     }
 }

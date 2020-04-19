@@ -10,6 +10,8 @@ public class Player_Controller : MonoBehaviour
     public Animator anim;
     public Vector2 movement;
 
+    public int playerHealth;
+
     public int Wood;
     public int Thread;
     public int Crew;
@@ -18,10 +20,13 @@ public class Player_Controller : MonoBehaviour
     public int maxAmmo;
     public int shipHealth;
     public int waterBucket;
+
+
     void Start()
     {
 
         maxAmmo = 10;
+        Ammo = 5;
         waterBucket = 1;
         Wood = 10;
         shipHealth = 100;

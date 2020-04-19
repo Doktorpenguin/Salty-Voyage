@@ -31,7 +31,6 @@ public class Fire_Controller : MonoBehaviour
     {
 
         Instantiate(this.gameObject, direction, this.transform.rotation);
-        Debug.Log("Fire Spreads");
 
     }
 
@@ -70,10 +69,8 @@ public class Fire_Controller : MonoBehaviour
         else
         {
             spreadChance = Random.Range(0, 2);
-            Debug.Log("Re-rolled to " + spreadChance);
             StartCoroutine("Timer");
         }
-        //Spread(transform.);
 
     }
 }
