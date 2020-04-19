@@ -17,6 +17,8 @@ MonoBehaviour:
   hasSpread: 0
   pc: {fileID: 0}
   enemy_Ship: {fileID: 0}
+  ensh: {fileID: 0}
+  beingFixed: 0
 --- !u!1001 &2434023747730196112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86,6 +88,11 @@ PrefabInstance:
     - target: {fileID: 6939687000607147876, guid: ded12f7c71a8bca4e85788f1bbe91cf2,
         type: 3}
       propertyPath: m_Name
+      value: Enemy Fire
+      objectReference: {fileID: 0}
+    - target: {fileID: 6939687000607147876, guid: ded12f7c71a8bca4e85788f1bbe91cf2,
+        type: 3}
+      propertyPath: m_TagString
       value: Enemy Fire
       objectReference: {fileID: 0}
     m_RemovedComponents:

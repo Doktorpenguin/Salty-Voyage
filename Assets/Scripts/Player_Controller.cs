@@ -34,7 +34,8 @@ public class Player_Controller : MonoBehaviour
         Ammo = 5;
         waterBucket = 3;
         Wood = 10;
-        shipHealth = 100;
+        shipHealthMax = 100;
+        shipHealth = shipHealthMax;
     }
 
     // Update is called once per frame
@@ -47,6 +48,11 @@ public class Player_Controller : MonoBehaviour
         anim.SetFloat("Horizontal", movement.x);
         anim.SetFloat("Vertical", movement.y);
         anim.SetFloat("Speed", movement.sqrMagnitude);
+
+        if (shipHealth > shipHealthMax)
+        {
+            shipHealth = shipHealthMax;
+        }
 
     }
 

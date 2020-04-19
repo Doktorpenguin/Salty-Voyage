@@ -7,18 +7,26 @@ public class Enemy_Ship : MonoBehaviour
 
     public int Wood;
     public int Thread;
-    public int Crew;
+    //public int Crew;
     public int Gold;
     public int Ammo;
     public int maxAmmo;
     public int shipHealth;
     public int waterBucket;
 
+    public GameObject Crew1;
+    public Repair_Behavior Crew1RP;
+
     void Start()
     {
+
+        //Crew1RP = Crew1.GetComponent<Repair_Behavior>();
+
         Wood = 10;
+        waterBucket = 2;
         shipHealth = 100;
-        Ammo = 10;
+        Ammo = maxAmmo;
+        maxAmmo = 15;
         Gold = 20;
 
     }
@@ -29,5 +37,22 @@ public class Enemy_Ship : MonoBehaviour
         
 
 
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.gameObject.tag == "damage")
+        {
+
+            //Crew1RP.damage = collision.gameObject;
+
+        }
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        
     }
 }

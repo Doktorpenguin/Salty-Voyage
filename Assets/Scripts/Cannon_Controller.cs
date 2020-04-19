@@ -38,10 +38,9 @@ public class Cannon_Controller : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && focusedCannon != null)
         {
-
-
+            //Select free cannon is no cannon is selected
 
             if (pc.Ammo >= 1)
             {
@@ -58,26 +57,19 @@ public class Cannon_Controller : MonoBehaviour
 
         }
 
-        if (cannonIndex > playerCannons.Length)
-        {
-            cannonIndex = 0;
-            if (playerCannons[0].GetComponent<Cannon_Stats>().needsReload == true)
-            {
+        //if (cannonIndex > playerCannons.Length)
+        //{
+        //    cannonIndex = 0;
+        //    if (playerCannons[0].GetComponent<Cannon_Stats>().needsReload == true)
+        //    {
 
-                focusedCannon = null;
+        //        focusedCannon = null;
 
-            }
+        //    }
 
-            else { focusedCannon = playerCannons[cannonIndex]; }
-            //Switch between all cannons until one is cleared
-        }
-
-    }
-
-    private void CreateLeak ()
-    {
-
-
+        //    else { focusedCannon = playerCannons[cannonIndex]; }
+        //    //Switch between all cannons until one is cleared
+        //}
 
     }
 
@@ -87,20 +79,19 @@ public class Cannon_Controller : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         mousePosition = Camera.main.ScreenToWorldPoint(mousePosition);
 
-        Vector2 direction = new Vector2(mousePosition.x - transform.position.x, mousePosition.y - transform.position.y);
-
-        focusedCannon.transform.up = direction;
-
         GameObject cb = Instantiate(cannonBall, tipTransform.position, focusedCannon.transform.rotation);
         GameObject mk = Instantiate(dest_marker, mousePosition, dest_marker.transform.rotation);
         cb.GetComponent<CannonBall_Controller>().destination = mk.transform.position;
         Destroy(mk, 3);
 
         pc.Ammo -= 1;
-        //  cannonStats.needsReload = true;
+
+        //cannonStats.needsReload = true;
+        //focusedCannon.GetComponent<SpriteRenderer>().sprite = focusedCannon.GetComponent<Cannon_Stats>().cannonSprite;
+        //focusedCannon = null;
+
         //cannonIndex += 1;
         //focusedCannon = playerCannons[cannonIndex];
-        //Instantiate and fire cannonball
 
     }
 }

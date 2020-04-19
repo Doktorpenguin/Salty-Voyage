@@ -5,6 +5,7 @@ using UnityEngine;
 public class Cannon_Stats : MonoBehaviour
 {
 
+    public Cannon_Controller cc;
     public Cannon cannon;
     public bool needsReload;
     public Sprite cannonSprite;
@@ -26,6 +27,23 @@ public class Cannon_Stats : MonoBehaviour
     {
      
         
+
+    }
+
+    public void Reload()
+    {
+        if (cc.focusedCannon = null)
+        {
+
+           needsReload = false;
+           cc.focusedCannon = this.gameObject;
+
+        }
+
+        else
+        {
+            needsReload = false;
+        }
 
     }
 }
