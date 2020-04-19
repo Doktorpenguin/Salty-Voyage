@@ -472,6 +472,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 3
   rb: {fileID: 97168193}
+  anim: {fileID: 97168194}
+  movement: {x: 0, y: 0}
   Wood: 0
   Thread: 0
   Crew: 0
@@ -3282,6 +3284,7 @@ MonoBehaviour:
   spreadChance: 0
   spreadDirection: 0
   hasSpread: 0
+  pc: {fileID: 97168191}
 --- !u!61 &1185918117
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3963,7 +3966,7 @@ PrefabInstance:
     - target: {fileID: 1244495895933343360, guid: 5d5d5b6939ff3fa48a9ec293c34ec861,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1244495895933343369, guid: 5d5d5b6939ff3fa48a9ec293c34ec861,
         type: 3}
@@ -4169,7 +4172,7 @@ PrefabInstance:
     - target: {fileID: 1244495895933343360, guid: 5d5d5b6939ff3fa48a9ec293c34ec861,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1244495895933343369, guid: 5d5d5b6939ff3fa48a9ec293c34ec861,
         type: 3}

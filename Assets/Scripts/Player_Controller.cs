@@ -7,6 +7,8 @@ public class Player_Controller : MonoBehaviour
     //This script handles the Character's movements and interactions with the world.
     public float moveSpeed;
     public Rigidbody2D rb;
+    public Animator anim;
+    public Vector2 movement;
 
     public int Wood;
     public int Thread;
@@ -16,8 +18,6 @@ public class Player_Controller : MonoBehaviour
     public int maxAmmo;
     public int shipHealth;
     public int waterBucket;
-
-    Vector2 movement;
     void Start()
     {
 
@@ -33,7 +33,11 @@ public class Player_Controller : MonoBehaviour
 
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
-        
+
+        anim.SetFloat("Horizontal", movement.x);
+        anim.SetFloat("Vertical", movement.y);
+        anim.SetFloat("Speed", movement.sqrMagnitude);
+
     }
 
     void FixedUpdate()
