@@ -51,13 +51,6 @@ public class OW_Cannon_Controller : MonoBehaviour
 
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-
-            
-
-        }
-
     }
 
     private void Shoot()

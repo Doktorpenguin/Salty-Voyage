@@ -12,6 +12,7 @@ public class EShipStats : ScriptableObject
     public int maxAmmo;
     public int shipHealthMax;
     public int waterBucket;
+    public int speed;
     //public GameObject ship;
     void Start()
     {

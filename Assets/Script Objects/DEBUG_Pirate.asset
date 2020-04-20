@@ -17,3 +17,4 @@ MonoBehaviour:
   maxAmmo: 100
   shipHealthMax: 100
   waterBucket: 100
+  speed: 7

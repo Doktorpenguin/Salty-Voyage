@@ -16,6 +16,7 @@ public class Enemy_Ship : MonoBehaviour
     public int shipHealth;
     public int shipHealthMax;
     public int waterBucket;
+    public float speed;
     public EShipStats s_Stats;
     public GameObject DeathFX;
     public Player_Controller pc;
@@ -37,6 +38,7 @@ public class Enemy_Ship : MonoBehaviour
         maxAmmo = s_Stats.maxAmmo;
         Ammo = maxAmmo;
         Gold = s_Stats.Gold;
+        speed = s_Stats.speed;
 
     }
 

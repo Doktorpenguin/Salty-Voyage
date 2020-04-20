@@ -46,7 +46,7 @@ public class Player_Controller : MonoBehaviour
 
         playerHealth = 20;
         maxAmmo = 10;
-        Ammo = 5;
+        Ammo = 50;
         waterBucket = 3;
         Wood = 10;
         shipHealthMax = 100;

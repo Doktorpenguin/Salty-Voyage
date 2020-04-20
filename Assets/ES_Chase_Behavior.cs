@@ -11,7 +11,7 @@ public class ES_Chase_Behavior : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        speed = 5;
+        speed = animator.GetComponent<Enemy_Ship>().speed;
 
     }
 
@@ -23,7 +23,7 @@ public class ES_Chase_Behavior : StateMachineBehaviour
 
         //animator.transform.up = direction;
 
-        playerPos = GameObject.FindGameObjectWithTag("Player Ship").transform.position;
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform.position;
 
         animator.transform.position = Vector2.MoveTowards(animator.transform.position, playerPos, speed * Time.deltaTime);
 

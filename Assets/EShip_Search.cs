@@ -23,7 +23,7 @@ public class EShip_Search : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         
-        if (collision.gameObject.tag == "Player Ship")
+        if (collision.gameObject.tag == "Player")
         {
 
             anim.SetBool("seePlayer", true);
@@ -35,7 +35,7 @@ public class EShip_Search : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Player Ship")
+        if (collision.gameObject.tag == "Player")
         {
 
             anim.SetBool("seePlayer", false);

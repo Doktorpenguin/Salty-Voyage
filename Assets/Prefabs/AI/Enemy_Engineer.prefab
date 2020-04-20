@@ -244,7 +244,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.008196786, y: 0.18032783}
+  m_Offset: {x: -0.0041285455, y: 0.21084006}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -255,7 +255,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.55737674, y: 0.63934433}
+  m_Size: {x: 0.35396153, y: 0.4399973}
   m_EdgeRadius: 0
 --- !u!50 &507091305342500307
 Rigidbody2D:
@@ -320,6 +320,8 @@ MonoBehaviour:
   reloading: 0
   cannon: {fileID: 0}
   pc: {fileID: 0}
+  blood: {fileID: 7482921771417068547, guid: 82646a54b00fd1c4b9341827bd91b61f, type: 3}
+  enemyHealth: 0
 --- !u!120 &4419868224244163183
 LineRenderer:
   m_ObjectHideFlags: 0

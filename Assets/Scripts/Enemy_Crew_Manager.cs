@@ -15,9 +15,12 @@ public class Enemy_Crew_Manager : MonoBehaviour
     public bool reloading;
     public GameObject cannon;
     public Player_Controller pc;
+    public GameObject blood;
+    public int enemyHealth;
 
     void Start()
     {
+        enemyHealth = 10;
         anim = GetComponent<Animator>();
         pc = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Controller>();
 
@@ -71,6 +74,13 @@ public class Enemy_Crew_Manager : MonoBehaviour
 
         }
 
+        if (enemyHealth <= 0)
+        {
+
+            Destroy(this.gameObject);
+
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -89,6 +99,14 @@ public class Enemy_Crew_Manager : MonoBehaviour
     {
 
         StartCoroutine(anim.GetBehaviour<Guard_Reload>().reloading());
+
+    }
+
+    public void hurt(int damage)
+    {
+
+        enemyHealth -= damage;
+        Instantiate(blood, this.transform.position, blood.transform.rotation);
 
     }
 

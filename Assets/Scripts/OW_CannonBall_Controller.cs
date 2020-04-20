@@ -50,7 +50,7 @@ public class OW_CannonBall_Controller : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "Player Ship" && players == false)
+        if (collision.gameObject.tag == "Player" && players == false)
         {
             //Damage it
             collision.GetComponent<Player_Controller>().shipHealth -= 10;

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class ES_Search_Behavior : StateMachineBehaviour
 {
+    public float speed;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-
+        speed = animator.GetComponent<Enemy_Ship>().speed;
 
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, animator.transform.forward, speed * Time.deltaTime);
 
     }
 
