@@ -10,7 +10,11 @@ public class Enemy_Crew_Manager : MonoBehaviour
     public GameObject crew;
     public float speed;
     public float shootSpeed;
+    public int reloadSpeed;
     public Animator anim;
+    public bool reloading;
+    public GameObject cannon;
+
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -21,6 +25,7 @@ public class Enemy_Crew_Manager : MonoBehaviour
         job_Repair = true;
         speed = 5;
 
+        //GameObject.FindGameObjectsWithTag("Enemy Crew")
     }
 
     
@@ -38,6 +43,11 @@ public class Enemy_Crew_Manager : MonoBehaviour
 
             anim.SetBool("cannonLoaded", true);
 
+        }
+
+        if (reloading == true)
+        {
+            StartCoroutine(reloader());
         }
 
     }
@@ -62,6 +72,15 @@ public class Enemy_Crew_Manager : MonoBehaviour
 
         yield break;
 
+    }
+
+    IEnumerator reloader()
+    {
+        yield return new WaitForSeconds(reloadSpeed);
+        reloading = false;
+        anim.SetBool("cannonLoaded", true);
+
+        yield break;
     }
 
 }

@@ -13,8 +13,11 @@ public class Cannon_Controller : MonoBehaviour
     public GameObject cannonBall;
     public Transform tipTransform;
     public GameObject dest_marker;
+    public int firingSpeed;
     void Start()
     {
+        firingSpeed = 3;
+
         cannonIndex = 0;
         focusedCannon = playerCannons[cannonIndex];
         focusedCannon.GetComponent<SpriteRenderer>().sprite = focusedCannon.GetComponent<Cannon_Stats>().activeSprite;
@@ -91,6 +94,15 @@ public class Cannon_Controller : MonoBehaviour
 
         //cannonIndex += 1;
         //focusedCannon = playerCannons[cannonIndex];
+
+    }
+
+    IEnumerator reloading()
+    {
+        yield return new WaitForSeconds(firingSpeed);
+        focusedCannon = this.gameObject;
+
+        yield break;
 
     }
 }

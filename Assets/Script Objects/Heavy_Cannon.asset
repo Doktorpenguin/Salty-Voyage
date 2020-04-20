@@ -16,6 +16,6 @@ MonoBehaviour:
   reloadSpeed: 6
   accuracy: 50
   maxCrew: 1
-  cannonSprite: {fileID: 21300000, guid: 1de2ede76652ca845aa3ff05b3071324, type: 3}
-  activeSprite: {fileID: 21300000, guid: f25b65b621027544795a398936cd0991, type: 3}
-  cannonBallSprite: {fileID: 21300000, guid: 6acefc429f43cea46aceb14dd798d6a6, type: 3}
+  cannonSprite: {fileID: 21300000, guid: 3284c4307ee7f15458012135a2c9933e, type: 3}
+  activeSprite: {fileID: 21300000, guid: 4a20142dfc2c41e43b9c0d4315f3a1fb, type: 3}
+  cannonBallSprite: {fileID: 21300000, guid: 68375f962a82007469d3de823f251132, type: 3}

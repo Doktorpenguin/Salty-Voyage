@@ -86,12 +86,12 @@ public class Player_Controller : MonoBehaviour
 
         }
 
-        if (shipHealth <= 0)
-        {
+        //if (shipHealth <= 0)
+        //{
 
-            Destroy(this.gameObject);
+            //Destroy(this.gameObject);
 
-        }
+        //}
 
         if (Input.GetKeyDown(KeyCode.Y))
         {

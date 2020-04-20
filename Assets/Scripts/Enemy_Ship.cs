@@ -12,6 +12,7 @@ public class Enemy_Ship : MonoBehaviour
     public int Ammo;
     public int maxAmmo;
     public int shipHealth;
+    public int shipHealthMax;
     public int waterBucket;
 
     //public GameObject Crew1;
@@ -24,7 +25,8 @@ public class Enemy_Ship : MonoBehaviour
 
         Wood = 10;
         waterBucket = 2;
-        shipHealth = 100;
+        shipHealthMax = 100;
+        shipHealth = shipHealthMax;
         maxAmmo = 15;
         Ammo = maxAmmo;
         Gold = 20;
@@ -35,7 +37,22 @@ public class Enemy_Ship : MonoBehaviour
     void Update()
     {
         
+        if (shipHealth <= 0)
+        {
 
+            Destroy(this.gameObject);
+
+        }
+
+        if (shipHealth > shipHealthMax)
+        {
+            shipHealth = shipHealthMax;
+        }
+
+        if (Ammo > maxAmmo)
+        {
+            Ammo = maxAmmo;
+        }
 
     }
 

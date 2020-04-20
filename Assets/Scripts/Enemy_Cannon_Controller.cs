@@ -10,8 +10,11 @@ public class Enemy_Cannon_Controller : MonoBehaviour
     public GameObject cannonBall;
     public Transform tipTransform;
     public GameObject dest_marker;
+    public int reloadSpeed;
     void Start()
     {
+        reloadSpeed = 3;
+
         focusedCannon = this.gameObject;
 
         enemy_S = GameObject.FindGameObjectWithTag("Enemy Ship").GetComponent<Enemy_Ship>();
@@ -41,5 +44,20 @@ public class Enemy_Cannon_Controller : MonoBehaviour
 
         enemy_S.Ammo -= 1;
 
+    }
+
+    public void Reload (Animator an)
+    {
+        Debug.Log("Trying to reload");
+        StartCoroutine("reloading", an);
+
+    }
+
+    IEnumerator reloading(Animator anim)
+    {
+        Debug.Log("Reloading...");
+        yield return new WaitForSeconds(reloadSpeed);
+        anim.SetBool("cannonLoaded", true);
+        yield break;
     }
 }
