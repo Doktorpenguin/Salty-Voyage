@@ -38,13 +38,13 @@ public class Player_Controller : MonoBehaviour
 
     void Start()
     {
-        moveSpeed = 3;
+        moveSpeed = 8;
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
         //hasGunpowder = false;
 
-        playerHealth = 10;
+        playerHealth = 20;
         maxAmmo = 10;
         Ammo = 5;
         waterBucket = 3;

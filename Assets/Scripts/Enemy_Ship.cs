@@ -25,7 +25,8 @@ public class Enemy_Ship : MonoBehaviour
 
     void Start()
     {
-        pc = GameObject.FindGameObjectWithTag("Player Ship").GetComponent<Player_Controller>();
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Controller>();
+        
         anim = GetComponent<Animator>();
         //Crew1RP = Crew1.GetComponent<Repair_Behavior>();
 

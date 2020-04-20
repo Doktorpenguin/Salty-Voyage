@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Guard_Attack_Behavior : StateMachineBehaviour
+public class Guard_Chase : StateMachineBehaviour
 {
     public GameObject player;
-    public int speed;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    public float speed;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
@@ -17,13 +16,7 @@ public class Guard_Attack_Behavior : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-
-        //animator.transform.position = Vector2.MoveTowards(animator.transform.position, player.transform.position, speed * Time.deltaTime);
-
-        //dist = Vector3.Distance(animator.transform.position, player.transform.position);
-
-            animator.transform.position = Vector2.MoveTowards(animator.transform.position, player.transform.position, speed * Time.deltaTime);
-
+        animator.transform.position = Vector2.MoveTowards(animator.transform.position, player.transform.position, speed * Time.deltaTime);
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

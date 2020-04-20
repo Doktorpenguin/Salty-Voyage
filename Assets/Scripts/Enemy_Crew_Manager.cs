@@ -14,10 +14,12 @@ public class Enemy_Crew_Manager : MonoBehaviour
     public Animator anim;
     public bool reloading;
     public GameObject cannon;
+    public Player_Controller pc;
 
     void Start()
     {
         anim = GetComponent<Animator>();
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Controller>();
 
         shootSpeed = 2f;
         crew = this.gameObject;
@@ -32,22 +34,41 @@ public class Enemy_Crew_Manager : MonoBehaviour
     void Update()
     {
         
-        if (Input.GetKey(KeyCode.Q))
+        //if (Input.GetKey(KeyCode.Q))
+        //{
+        //    crew.GetComponent<Animator>().SetBool("Job_Repair", false);
+
+        //}
+
+        //if (Input.GetKey(KeyCode.H))
+        //{
+
+        //    anim.SetBool("cannonLoaded", true);
+
+        //}
+
+        //if (reloading == true)
+        //{
+        //    StartCoroutine(reloader());
+        //}
+
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+
+        if (collision.gameObject.tag == "Player")
         {
-            crew.GetComponent<Animator>().SetBool("Job_Repair", false);
+
+            pc.hurt(1);
 
         }
-
-        if (Input.GetKey(KeyCode.H))
+        
+        if (collision.gameObject.tag == "Crew")
         {
 
-            anim.SetBool("cannonLoaded", true);
+            //Damage Crew member
 
-        }
-
-        if (reloading == true)
-        {
-            StartCoroutine(reloader());
         }
 
     }
@@ -64,23 +85,11 @@ public class Enemy_Crew_Manager : MonoBehaviour
 
     }
 
-    IEnumerator firerate()
+    public void reload ()
     {
 
-        yield return new WaitForSeconds(shootSpeed);
-        
+        StartCoroutine(anim.GetBehaviour<Guard_Reload>().reloading());
 
-        yield break;
-
-    }
-
-    IEnumerator reloader()
-    {
-        yield return new WaitForSeconds(reloadSpeed);
-        reloading = false;
-        anim.SetBool("cannonLoaded", true);
-
-        yield break;
     }
 
 }
