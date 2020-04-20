@@ -12,9 +12,11 @@ public class OW_Cannon_Controller : MonoBehaviour
     public Transform tipTransform;
     public GameObject dest_marker;
     public float firingSpeed;
+    public AudioSource audioS;
     void Start()
     {
         firingSpeed = cannonStats.reloadSpeed;
+        audioS = GetComponent<AudioSource>();
 
         focusedCannon = this.gameObject;
         focusedCannon.GetComponent<SpriteRenderer>().sprite = cannonStats.activeSprite;
@@ -81,6 +83,8 @@ public class OW_Cannon_Controller : MonoBehaviour
         focusedCannon.GetComponent<SpriteRenderer>().sprite = cannonStats.cannonSprite;
         focusedCannon = null;
         StartCoroutine(reloading());
+
+        audioS.Play();
 
         //cannonStats.needsReload = true;
         //focusedCannon.GetComponent<SpriteRenderer>().sprite = focusedCannon.GetComponent<Cannon_Stats>().cannonSprite;

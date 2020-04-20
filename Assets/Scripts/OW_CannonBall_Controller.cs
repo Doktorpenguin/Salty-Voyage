@@ -44,7 +44,7 @@ public class OW_CannonBall_Controller : MonoBehaviour
         if (collision.gameObject.tag == "Enemy Ship" && players)
         {
 
-            collision.GetComponent<Enemy_Ship>().shipHealth -= 50;
+            collision.GetComponent<Enemy_Ship>().shipHealth -= 5;
             Instantiate(HitFX, this.transform.position, HitFX.transform.rotation);
             Destroy(this.gameObject);
 
@@ -53,7 +53,7 @@ public class OW_CannonBall_Controller : MonoBehaviour
         if (collision.gameObject.tag == "Player Ship" && players == false)
         {
             //Damage it
-            collision.GetComponent<Player_Controller>().shipHealth -= 5;
+            collision.GetComponent<Player_Controller>().shipHealth -= 10;
             Instantiate(HitFX, this.transform.position, HitFX.transform.rotation);
             Destroy(this.gameObject);
 

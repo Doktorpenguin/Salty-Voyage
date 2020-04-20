@@ -18,13 +18,14 @@ public class Enemy_Ship : MonoBehaviour
     public int waterBucket;
     public EShipStats s_Stats;
     public GameObject DeathFX;
+    public Player_Controller pc;
 
     //public GameObject Crew1;
     //public Repair_Behavior Crew1RP;
 
     void Start()
     {
-
+        pc = GameObject.FindGameObjectWithTag("Player Ship").GetComponent<Player_Controller>();
         anim = GetComponent<Animator>();
         //Crew1RP = Crew1.GetComponent<Repair_Behavior>();
 
@@ -45,6 +46,10 @@ public class Enemy_Ship : MonoBehaviour
         if (shipHealth <= 0)
         {
             Instantiate(DeathFX, this.transform.position, DeathFX.transform.rotation);
+            pc.Wood += Random.Range(5, Wood);
+            pc.Ammo += Random.Range(3, maxAmmo);
+            pc.waterBucket += Random.Range(3, waterBucket);
+            pc.Gold += Random.Range(10, Gold);
             Destroy(this.gameObject);
 
         }

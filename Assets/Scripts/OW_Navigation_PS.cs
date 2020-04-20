@@ -27,4 +27,11 @@ public class OW_Navigation_PS : MonoBehaviour
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        
+
+
+    }
 }
