@@ -41,7 +41,6 @@ public class Cannon_Controller : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && focusedCannon != null)
         {
             //Select free cannon is no cannon is selected
-
             if (pc.Ammo >= 1)
             {
                 Shoot();

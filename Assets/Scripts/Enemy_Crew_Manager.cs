@@ -10,8 +10,11 @@ public class Enemy_Crew_Manager : MonoBehaviour
     public GameObject crew;
     public float speed;
     public float shootSpeed;
+    public Animator anim;
     void Start()
     {
+        anim = GetComponent<Animator>();
+
         shootSpeed = 2f;
         crew = this.gameObject;
         enemy_S = GameObject.FindGameObjectWithTag("Enemy Ship").GetComponent<Enemy_Ship>();
@@ -27,6 +30,13 @@ public class Enemy_Crew_Manager : MonoBehaviour
         if (Input.GetKey(KeyCode.Q))
         {
             crew.GetComponent<Animator>().SetBool("Job_Repair", false);
+
+        }
+
+        if (Input.GetKey(KeyCode.H))
+        {
+
+            anim.SetBool("cannonLoaded", true);
 
         }
 

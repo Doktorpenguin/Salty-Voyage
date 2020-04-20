@@ -15,6 +15,7 @@ TagManager:
   - Enemy Damage
   - Enemy Fire
   - Interactable Object
+  - Enemy Cannon
   layers:
   - Default
   - TransparentFX

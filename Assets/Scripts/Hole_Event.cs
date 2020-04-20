@@ -9,6 +9,7 @@ public class Hole_Event : MonoBehaviour
     public Player_Controller pc;
     void Start()
     {
+        pc = GameObject.FindGameObjectWithTag("Player").GetComponent<Player_Controller>();
 
         pc.shipHealth -= 5;
 

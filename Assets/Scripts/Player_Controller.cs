@@ -10,6 +10,7 @@ public class Player_Controller : MonoBehaviour
     private Animator anim;
     private Vector2 movement;
     public GameObject blood;
+    public GameObject testCube;
 
     public int playerHealth;
 
@@ -24,6 +25,13 @@ public class Player_Controller : MonoBehaviour
     public int waterBucket;
 
     public bool hasGunpowder;
+
+    public float shipX;
+    public float shipY;
+    public Transform widthCorner1;
+    public Transform widthCorner2;
+    public Transform heightCorner1;
+    public Transform heightCorner2;
 
 
     void Start()
@@ -41,6 +49,12 @@ public class Player_Controller : MonoBehaviour
         Wood = 10;
         shipHealthMax = 100;
         shipHealth = shipHealthMax;
+
+        shipX = Vector3.Distance(widthCorner1.position, widthCorner2.position);
+        shipY = Vector3.Distance(heightCorner1.position, heightCorner2.position);
+
+        Debug.Log(shipX + "/" + shipY);
+
     }
 
     // Update is called once per frame
@@ -72,6 +86,26 @@ public class Player_Controller : MonoBehaviour
 
         }
 
+        if (shipHealth <= 0)
+        {
+
+            Destroy(this.gameObject);
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            float cordX = Random.Range(widthCorner1.position.x, widthCorner2.position.x);
+            float cordY = Random.Range(heightCorner1.position.y, heightCorner2.position.y);
+
+            Vector3 cords = new Vector3 (cordX, cordY, 0);
+
+            //Debug.Log("Cords: " + cords);
+            Debug.Log(widthCorner1.position.x + "/" + widthCorner2.position.x + "/" + heightCorner1.position.y + "/" + heightCorner2.position.y);
+            Instantiate(testCube, cords, testCube.transform.rotation);
+
+        }
+
     }
 
     void FixedUpdate()
@@ -80,7 +114,7 @@ public class Player_Controller : MonoBehaviour
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
 
     }
-
+    #region Collision Detection
     private void OnCollisionStay2D(Collision2D collision)
     {
         //When the player interacts with an object, one of these things will happen based on what their interacting with.
@@ -122,6 +156,7 @@ public class Player_Controller : MonoBehaviour
         }
 
     }
+    #endregion
 
     public void hurt(int damage)
     {
@@ -130,7 +165,7 @@ public class Player_Controller : MonoBehaviour
         Instantiate(blood, this.transform.position, blood.transform.rotation);
 
     }
-
+    #region Fixes
     void FixLeak(GameObject Leak)
     {
         if (Wood >= 5)
@@ -150,4 +185,5 @@ public class Player_Controller : MonoBehaviour
             Destroy(Fire);
         }
     }
+    #endregion
 }

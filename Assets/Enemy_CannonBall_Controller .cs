@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class CannonBall_Controller : MonoBehaviour
+public class Enemy_CannonBall_Controller : MonoBehaviour
 {
     public Vector3 destination;
     public float speed;
@@ -18,7 +18,7 @@ public class CannonBall_Controller : MonoBehaviour
 
         canSink = false;
         rb = GetComponent<Rigidbody2D>();
-        Destroy(this.gameObject, 5f);
+        Destroy(this.gameObject, 8f);
         //Destroy(this.gameObject, 5f);
         fireChance = Random.Range(0, 4);
 
@@ -34,21 +34,10 @@ public class CannonBall_Controller : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Destroy(this.gameObject);
-    }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (other.gameObject.tag == "Enemy Ship")
-        {
-            canSink = true;
-
-        }
-
-        else if (other.gameObject.tag == "Player Ship")
+        if (other.gameObject.tag == "Player Ship")
         {
             canSink = true;
 
@@ -93,19 +82,12 @@ public class CannonBall_Controller : MonoBehaviour
     private void OnTriggerStay2D(Collider2D collision)
     {
 
-        if (collision.gameObject.tag == "Enemy Ship")
+        if (collision.gameObject.tag == "Player Ship")
         {
             
             canSink = true;
 
         }
 
-        else if (collision.gameObject.tag == "Player Ship")
-        {
-
-            canSink = true;
-
-        }
     }
-
 }
