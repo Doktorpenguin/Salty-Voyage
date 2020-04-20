@@ -50,8 +50,8 @@ public class Player_Controller : MonoBehaviour
         shipHealthMax = 100;
         shipHealth = shipHealthMax;
 
-        shipX = Vector3.Distance(widthCorner1.position, widthCorner2.position);
-        shipY = Vector3.Distance(heightCorner1.position, heightCorner2.position);
+        //shipX = Vector3.Distance(widthCorner1.position, widthCorner2.position);
+        //shipY = Vector3.Distance(heightCorner1.position, heightCorner2.position);
 
         Debug.Log(shipX + "/" + shipY);
 

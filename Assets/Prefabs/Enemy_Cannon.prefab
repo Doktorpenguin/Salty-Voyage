@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2205523010089567954}
   m_Layer: 0
   m_Name: Enemy_Cannon
-  m_TagString: Cannon
+  m_TagString: Enemy Cannon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +125,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   focusedCannon: {fileID: 0}
   enemy_S: {fileID: 0}
-  Leak: {fileID: 1244495895933343360, guid: 5d5d5b6939ff3fa48a9ec293c34ec861, type: 3}
   cannonBall: {fileID: 7953587842810334997, guid: fe689d33553207f46850cdb6ff8f0658,
     type: 3}
   tipTransform: {fileID: 2205523010405222604}

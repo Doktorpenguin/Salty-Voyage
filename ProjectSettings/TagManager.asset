@@ -16,6 +16,7 @@ TagManager:
   - Enemy Fire
   - Interactable Object
   - Enemy Cannon
+  - Cull
   layers:
   - Default
   - TransparentFX
