@@ -10,10 +10,8 @@ public class Cannon : ScriptableObject
     public float reloadSpeed;
     public float accuracy;
     //the maximum amount of crew members that can operate the cannon.
-    public float maxCrew;
-    //ammo type variable
+    //public float maxCrew;
     public Sprite cannonSprite;
     public Sprite activeSprite;
-    public Sprite cannonBallSprite;
 
 }

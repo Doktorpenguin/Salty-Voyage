@@ -12,6 +12,8 @@ public class Player_Controller : MonoBehaviour
     public GameObject blood;
     public GameObject testCube;
 
+    public bool canMove;
+
     public int playerHealth;
 
     public int Wood;
@@ -24,14 +26,14 @@ public class Player_Controller : MonoBehaviour
     public int shipHealthMax;
     public int waterBucket;
 
-    public bool hasGunpowder;
+    //public bool hasGunpowder;
 
-    public float shipX;
-    public float shipY;
-    public Transform widthCorner1;
-    public Transform widthCorner2;
-    public Transform heightCorner1;
-    public Transform heightCorner2;
+    //public float shipX;
+    //public float shipY;
+    //public Transform widthCorner1;
+    //public Transform widthCorner2;
+    //public Transform heightCorner1;
+    //public Transform heightCorner2;
 
 
     void Start()
@@ -40,7 +42,7 @@ public class Player_Controller : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        hasGunpowder = false;
+        //hasGunpowder = false;
 
         playerHealth = 10;
         maxAmmo = 10;
@@ -53,7 +55,7 @@ public class Player_Controller : MonoBehaviour
         //shipX = Vector3.Distance(widthCorner1.position, widthCorner2.position);
         //shipY = Vector3.Distance(heightCorner1.position, heightCorner2.position);
 
-        Debug.Log(shipX + "/" + shipY);
+        //Debug.Log(shipX + "/" + shipY);
 
     }
 
@@ -64,9 +66,12 @@ public class Player_Controller : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
 
-        anim.SetFloat("Horizontal", movement.x);
-        anim.SetFloat("Vertical", movement.y);
-        anim.SetFloat("Speed", movement.sqrMagnitude);
+        if (anim != null)
+        {
+            anim.SetFloat("Horizontal", movement.x);
+            anim.SetFloat("Vertical", movement.y);
+            anim.SetFloat("Speed", movement.sqrMagnitude);
+        }
 
         if (shipHealth > shipHealthMax)
         {
@@ -93,25 +98,27 @@ public class Player_Controller : MonoBehaviour
 
         //}
 
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            float cordX = Random.Range(widthCorner1.position.x, widthCorner2.position.x);
-            float cordY = Random.Range(heightCorner1.position.y, heightCorner2.position.y);
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    float cordX = Random.Range(widthCorner1.position.x, widthCorner2.position.x);
+        //    float cordY = Random.Range(heightCorner1.position.y, heightCorner2.position.y);
 
-            Vector3 cords = new Vector3 (cordX, cordY, 0);
+        //    Vector3 cords = new Vector3 (cordX, cordY, 0);
 
-            //Debug.Log("Cords: " + cords);
-            Debug.Log(widthCorner1.position.x + "/" + widthCorner2.position.x + "/" + heightCorner1.position.y + "/" + heightCorner2.position.y);
-            Instantiate(testCube, cords, testCube.transform.rotation);
+        //    //Debug.Log("Cords: " + cords);
+        //    Debug.Log(widthCorner1.position.x + "/" + widthCorner2.position.x + "/" + heightCorner1.position.y + "/" + heightCorner2.position.y);
+        //    Instantiate(testCube, cords, testCube.transform.rotation);
 
-        }
+        //}
 
     }
 
     void FixedUpdate()
     {
-
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        if (canMove)
+        {
+            rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        }
 
     }
     #region Collision Detection
@@ -133,18 +140,18 @@ public class Player_Controller : MonoBehaviour
                     FixFire(collision.gameObject);
                     break;
 
-                case "Cannon":
+                //case "Cannon":
 
-                    if (hasGunpowder)
-                    {
-                        collision.gameObject.GetComponent<Cannon_Stats>().Reload();
-                    }
-                    else
-                    {
-                        Debug.Log("You need to grab gun powder!");
-                    }
+                //    if (hasGunpowder)
+                //    {
+                //        collision.gameObject.GetComponent<Cannon_Stats>().Reload();
+                //    }
+                //    else
+                //    {
+                //        Debug.Log("You need to grab gun powder!");
+                //    }
 
-                    break;
+                //    break;
 
                 case "Interactable Object":
 
@@ -165,7 +172,7 @@ public class Player_Controller : MonoBehaviour
         Instantiate(blood, this.transform.position, blood.transform.rotation);
 
     }
-    #region Fixes
+    #region Functions
     void FixLeak(GameObject Leak)
     {
         if (Wood >= 5)

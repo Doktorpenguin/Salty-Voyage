@@ -167,3 +167,6 @@ MonoBehaviour:
   destination: {x: 0, y: 0, z: 0}
   speed: 20
   rb: {fileID: 0}
+  players: 0
+  HitFX: {fileID: 2206388545899921617, guid: b2af3f9f27360d14bb5336047765befc, type: 3}
+  SinkFX: {fileID: 2393483930575991403, guid: c3ddf584cd0c47149ad57a148a0ac974, type: 3}

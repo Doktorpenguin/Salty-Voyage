@@ -9,7 +9,7 @@ public class ES_Reload_Behavior : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
 
-        animator.GetComponent<EShip_Search>().Reloading();
+        animator.GetComponent<Enemy_Ship>().Reloading();
 
     }
 

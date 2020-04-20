@@ -28,6 +28,7 @@ public class OW_ECannon_Controller : MonoBehaviour
     {
 
         GameObject cb = Instantiate(cannonBall, tipTransform.position, transform.rotation);
+        cb.GetComponent<OW_CannonBall_Controller>().players = false;
         cb.GetComponent<OW_CannonBall_Controller>().destination = cords;
 
         //enemy_S.Ammo -= 1;

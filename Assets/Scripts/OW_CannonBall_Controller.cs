@@ -9,6 +9,9 @@ public class OW_CannonBall_Controller : MonoBehaviour
     public Vector3 destination;
     public float speed;
     public Rigidbody2D rb;
+    public bool players;
+    public GameObject HitFX;
+    public GameObject SinkFX;
     void Start()
     {
 
@@ -26,22 +29,32 @@ public class OW_CannonBall_Controller : MonoBehaviour
         //rb.MovePosition(destination * speed * Time.deltaTime);
         Debug.DrawLine(this.transform.position, destination, Color.magenta);
 
+        if (rb.velocity.x <= 1 || rb.velocity.y <= 1)
+        {
+            Instantiate(SinkFX, this.transform.position, SinkFX.transform.rotation);
+            Destroy(this.gameObject);
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        //if (collision.gameObject.tag == "Enemy Ship")
-        //{
 
-        //Damage it
-        //Destroy(this.gameObject);
+        if (collision.gameObject.tag == "Enemy Ship" && players)
+        {
 
-        //}
+            collision.GetComponent<Enemy_Ship>().shipHealth -= 50;
+            Instantiate(HitFX, this.transform.position, HitFX.transform.rotation);
+            Destroy(this.gameObject);
 
-        if (collision.gameObject.tag == "Player Ship")
+        }
+
+        if (collision.gameObject.tag == "Player Ship" && players == false)
         {
             //Damage it
+            collision.GetComponent<Player_Controller>().shipHealth -= 5;
+            Instantiate(HitFX, this.transform.position, HitFX.transform.rotation);
             Destroy(this.gameObject);
 
         }

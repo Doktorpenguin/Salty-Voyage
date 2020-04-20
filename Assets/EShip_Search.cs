@@ -9,7 +9,7 @@ public class EShip_Search : MonoBehaviour
     void Start()
     {
 
-        anim = GetComponent<Animator>();
+        anim = GetComponentInParent<Animator>();
 
     }
 
@@ -41,13 +41,6 @@ public class EShip_Search : MonoBehaviour
             anim.SetBool("seePlayer", false);
 
         }
-
-    }
-
-    public void Reloading ()
-    {
-
-        StartCoroutine(anim.GetBehaviour<ES_Reload_Behavior>().reload());
 
     }
 
