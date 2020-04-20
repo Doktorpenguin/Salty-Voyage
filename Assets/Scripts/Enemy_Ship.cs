@@ -14,8 +14,8 @@ public class Enemy_Ship : MonoBehaviour
     public int shipHealth;
     public int waterBucket;
 
-    public GameObject Crew1;
-    public Repair_Behavior Crew1RP;
+    //public GameObject Crew1;
+    //public Repair_Behavior Crew1RP;
 
     void Start()
     {

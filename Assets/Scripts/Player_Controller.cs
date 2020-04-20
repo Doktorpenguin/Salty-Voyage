@@ -9,6 +9,7 @@ public class Player_Controller : MonoBehaviour
     public Rigidbody2D rb;
     private Animator anim;
     private Vector2 movement;
+    public GameObject blood;
 
     public int playerHealth;
 
@@ -58,6 +59,19 @@ public class Player_Controller : MonoBehaviour
             shipHealth = shipHealthMax;
         }
 
+        if (Ammo > maxAmmo)
+        {
+            Ammo = maxAmmo;
+        }
+
+        if (playerHealth <= 0)
+        {
+
+            Destroy(this.gameObject);
+            //Gameover
+
+        }
+
     }
 
     void FixedUpdate()
@@ -69,6 +83,7 @@ public class Player_Controller : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D collision)
     {
+        //When the player interacts with an object, one of these things will happen based on what their interacting with.
         if (Input.GetKeyDown(KeyCode.E))
         {
             switch (collision.gameObject.tag)
@@ -105,6 +120,14 @@ public class Player_Controller : MonoBehaviour
 
             }
         }
+
+    }
+
+    public void hurt(int damage)
+    {
+
+        playerHealth -= damage;
+        Instantiate(blood, this.transform.position, blood.transform.rotation);
 
     }
 

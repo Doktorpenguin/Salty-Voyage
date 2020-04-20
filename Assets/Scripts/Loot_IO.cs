@@ -78,6 +78,27 @@ public class Loot_IO : MonoBehaviour
 
         }
 
+        else if (loot_type == "Water" || loot_type == "water")
+            {
+
+            if (enemy_S.waterBucket <= 0)
+            {
+                Debug.Log("Enemy has no water to take");
+                Destroy(this.gameObject);
+            }
+
+            else
+            {
+
+                enemy_S.waterBucket -= amount;
+                pc.waterBucket += amount;
+
+                Destroy(this.gameObject);
+                //Play sound effect
+            }
+
+        }
+
         else
         {
 
